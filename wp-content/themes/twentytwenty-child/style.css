@@ -1,0 +1,15 @@
+/*
+ Theme Name:     twenty-twenty-child
+ Theme URI:      http://localhost/test-elemntor/
+ Description:    twenty-twenty-child Theme
+ Author:         Tsohar Zigdon
+ Author URI:     http://localhost/test-elemntor/
+ Template:       twentytwenty
+ Version:        1.0.0
+*/
+
+/* import parent style */
+ @import url("../twentytwenty/style.css");
+
+/* =Theme customization starts here
+------------------------------------------------------- */
