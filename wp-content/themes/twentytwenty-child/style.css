@@ -35,6 +35,7 @@ body{margin-top:20px;
   box-shadow: 0 3px 7px 0 #a8a8a8;
 }
 .product-imitation {
+  position: relative;
   text-align: center;
   /* padding: 90px 0; */
   background-color: #f8f8f9;
@@ -54,6 +55,7 @@ body{margin-top:20px;
 .product-desc {
   padding: 20px;
   position: relative;
+  min-height: 185px;
 }
 .ecommerce .tag-list {
   padding: 0;
@@ -173,15 +175,39 @@ span.pricebefore {
     text-decoration: line-through;
 } 
 
+.m-t.text-righ {
+    position: absolute;
+    bottom: 0;
+}
+
 
 /*singular.php style*/
-
+.salec{
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    color: #fff;
+    padding: 7px;
+    background: red;
+    font-size: 25px;
+}
+.salec-hp{
+    position: absolute;
+    top: -15px;
+    left: -20px;
+    color: #fff;
+    padding: 7px;
+    background: red;
+    font-size: 25px;
+}
 
 
 img {
     max-width: 100%; }
   
   .preview {
+    position: relative;
+
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -345,10 +371,18 @@ img {
 
 
 
-/*part 5 style to calback box */
+/*Part 5 style to calback box */
 .boxout {
     margin: 0 auto;
 }
 .boxout img{
     max-width: 300px;
+}
+
+
+/*Part 6*/
+@media screen and (max-width: 997px) {
+    #site-header{
+        background-color: #ffbebe;
+    }
 }
