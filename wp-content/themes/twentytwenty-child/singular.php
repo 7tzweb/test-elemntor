@@ -63,7 +63,7 @@ get_header();
 							</div>
 						</div>
 						<p class="product-description">
-							<?php  echo get_the_content();?>
+							<?php  echo the_content();?>
 
 							<?php echo get_field('youtube_video') ?>
 						</p>

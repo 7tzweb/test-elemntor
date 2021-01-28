@@ -341,3 +341,14 @@ img {
       opacity: 1;
       -webkit-transform: scale(1);
               transform: scale(1); } }
+
+
+
+
+/*part 5 style to calback box */
+.boxout {
+    margin: 0 auto;
+}
+.boxout img{
+    max-width: 300px;
+}

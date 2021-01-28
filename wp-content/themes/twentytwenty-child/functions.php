@@ -14,6 +14,10 @@ function remove_admin_bar()
 }
 
 
+
+
+
+
 /* Part 4 - Post Types */
 // custom post type function
 function create_posttype() {
@@ -101,8 +105,30 @@ function custom_post_type() {
   */
    
   add_action( 'init', 'custom_post_type', 0 );
-?>
 
+
+ 
+//Part 5 add Shortcode prodacut 5 with this shortcode
+// function that runs when shortcode is called
+function shortcodes_get_pr($arr )
+{
+  $content_post = get_post($arr['pr_id']); 
+  // print_r($content_post );
+  $ress = "<div class='boxout' style='background: ".$arr['color'].";' >
+  <img class='img-box' src='".get_field('main_image')['url']."' />
+  <h3>".$content_post->post_title."</h3>
+  <span>".get_field('sale_price')."</span>
+
+  </div>";
+    // return  $content_post->ID;
+    return $ress  ;
+    
+}
+add_shortcode('get_pr', 'shortcodes_get_pr');
+
+
+
+?>
 
   
 
