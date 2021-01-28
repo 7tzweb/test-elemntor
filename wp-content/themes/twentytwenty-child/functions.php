@@ -159,3 +159,52 @@ function shortcodes_get_pr($arr)
 }
 add_shortcode('get_pr', 'shortcodes_get_pr');
 
+
+/*
+Part 7 json-api
+  example url : http://localhost/test-elemntor/test-elemntor/wp-json/wl/v1/posts/cat-1
+  we call all post in the category by catgory slug
+ */
+
+function wl_cat_to_list($slug)
+{
+    $catid = $slug['slug'];
+    // return $catid;
+
+    $args = [
+        'post_type' => 'Products',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'category',
+                'terms' => $catid,
+                'field' => 'slug',
+                'include_children' => true,
+                'operator' => 'IN',
+            ),
+        ),
+        // Rest of your arguments
+    ];
+    $data = array();
+    $myposts = get_posts($args);
+    foreach ($myposts as $post): setup_postdata($post);
+        // $data['post'] = $post;
+        $data[$i]['title'] = $post->post_title;
+        $data[$i]['description'] = $post->post_content;
+        $data[$i]['image'] = get_field('main_image',$post->ID)['url'] ;
+        $data[$i]['price'] = $post->price;
+        $data[$i]['is_on_sale'] = $post->is_on_sale;
+        $data[$i]['sale_price'] = $post->sale_price;
+        $i++;
+    endforeach; 
+
+    return $data;
+}
+
+add_action('rest_api_init', function () {
+
+    register_rest_route('wl/v1', 'posts/(?P<slug>[a-zA-Z0-9-]+)', array(
+        'methods' => 'GET',
+        'callback' => 'wl_cat_to_list',
+    ));
+
+});

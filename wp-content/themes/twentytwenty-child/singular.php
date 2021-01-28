@@ -108,10 +108,10 @@ if ($slugcat) {
 
     $myposts = get_posts($args);
     foreach ($myposts as $post): setup_postdata($post);?>
-					<?php
-    get_template_part('item');
+		<?php
+ 	 	  get_template_part('item');
         ?>
-				<?php endforeach;
+	<?php endforeach;
     wp_reset_postdata();?>
 
 
